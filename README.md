@@ -1,4 +1,4 @@
-# CogniNotes
+# CogiNotes
 
 COURSE: CPE 3
 
