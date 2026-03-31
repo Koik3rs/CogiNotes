@@ -1,13 +1,14 @@
 # CogniNotes
 
 COURSE: CPE 3
+
 GROUP MEMBERS:
 
-  Verzosa, Kurt Harem  -  BSCpE 1A
-  Ibajo, Roi Vincent   -  BSCpE 1A
-  Fenellere, Zeus Art  -  BSCpE 1B
-  Labarosa, Leonard    -  BSCpE 1B
-  Peralta, Jacob       -  BSCpE 1B
+Verzosa, Kurt Harem  -  BSCpE 1A
+Ibajo, Roi Vincent   -  BSCpE 1A
+Fenellere, Zeus Art  -  BSCpE 1B
+Labarosa, Leonard    -  BSCpE 1B
+Peralta, Jacob       -  BSCpE 1B
 
 COURSE INSTRUCTOR: ENGR. MANUEL SAPINIT 
 
