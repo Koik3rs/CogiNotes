@@ -4,7 +4,7 @@ from tkinter import filedialog, messagebox
 import json, os, shutil, subprocess, sys, datetime
 import sqlite3
 
-#  DATABASE SETUP
+#  DATABASE SETU
 BASE_DIR    = os.path.dirname(os.path.abspath(__file__))
 DB_FILE     = os.path.join(BASE_DIR, "student_portal.db")
 UPLOADS_DIR = os.path.join(BASE_DIR, "uploads")
