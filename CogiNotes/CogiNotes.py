@@ -1,18 +1,10 @@
-"""
-Student Portal – complete single-file application
-Screens: Login → Main → Browse / Upload / Forums / Downloads
-All navigation replaces the current window content (no stacked Toplevels).
-With SQLite Database Integration
-"""
 
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import json, os, shutil, subprocess, sys, datetime
 import sqlite3
 
-# ══════════════════════════════════════════════════════════════════
 #  DATABASE SETUP
-# ══════════════════════════════════════════════════════════════════
 BASE_DIR    = os.path.dirname(os.path.abspath(__file__))
 DB_FILE     = os.path.join(BASE_DIR, "student_portal.db")
 UPLOADS_DIR = os.path.join(BASE_DIR, "uploads")
