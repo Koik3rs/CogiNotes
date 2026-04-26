@@ -1,0 +1,14 @@
+Starting app...
+Traceback (most recent call last):
+  File "C:\Users\Rochelle Lumibao\study buddy.py\run_with_logging.py", line 15, in <module>
+    exec(f.read())
+    ~~~~^^^^^^^^^^
+  File "<string>", line 1685, in <module>
+  File "<string>", line 226, in __init__
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 1599, in mainloop
+    self.tk.mainloop(n)
+    ~~~~~~~~~~~~~~~~^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 2074, in __call__
+    def __call__(self, *args):
+    
+KeyboardInterrupt

@@ -7,10 +7,13 @@ This is a complete Student Portal application with integrated SQLite database fo
 
 ### Tables Created Automatically:
 
-1. **users** - User credentials
+1. **users** - User credentials and profiles
    - `id` (PRIMARY KEY)
    - `username` (UNIQUE)
    - `password`
+   - `role` (admin/student)
+   - `profile_picture_path`
+   - `security_question`, `security_answer`
    - `created_at` (TIMESTAMP)
 
 2. **file_metadata** - File upload information
@@ -19,12 +22,16 @@ This is a complete Student Portal application with integrated SQLite database fo
    - `course`, `topic`, `program` (metadata fields)
    - `uploader` (student who uploaded)
    - `upload_date`
+   - `status` (pending/approved/rejected)
+   - `approved_by`, `rejection_reason`
    - `created_at` (TIMESTAMP)
 
 3. **forum_posts** - Discussion forum posts
    - `id` (PRIMARY KEY)
    - `author`, `title`, `body`
    - `post_date`
+   - `status` (pending/approved/rejected)
+   - `approved_by`, `rejection_reason`
    - `created_at` (TIMESTAMP)
 
 4. **forum_replies** - Replies to forum posts
@@ -32,13 +39,22 @@ This is a complete Student Portal application with integrated SQLite database fo
    - `post_id` (FOREIGN KEY)
    - `author`, `body`
    - `reply_date`
+   - `status` (pending/approved/rejected)
+   - `approved_by`, `rejection_reason`
    - `created_at` (TIMESTAMP)
+
+5. **user_downloads** - Download tracking
+   - `id` (PRIMARY KEY)
+   - `username`, `filename`
+   - `download_date` (TIMESTAMP)
 
 ## Features
 
 ✅ **User Authentication** - Login with database-backed credentials
 ✅ **File Management** - Upload, browse, download files with metadata
 ✅ **Forum Discussion** - Post topics and reply to discussions
+✅ **Admin Panel** - Approve content, manage users, moderate forum
+✅ **User Management** - Admin can create, view, and delete user accounts
 ✅ **Persistent Storage** - All data stored in SQLite database
 ✅ **Modern UI** - Rounded buttons, custom styling, responsive layout
 
@@ -76,24 +92,23 @@ study buddy.py/
 └── uploads/              # Uploaded files directory
 ```
 
-## Database Features
+## Admin Features
 
-### Data Integrity
-- Foreign key constraints ensure forum replies can't reference deleted posts
-- Cascading deletes maintain data consistency
-- Unique constraints prevent duplicate usernames and filenames
+### Content Moderation
+- **File Approval**: Review and approve/reject uploaded files
+- **Forum Moderation**: Approve/reject posts and replies
+- **Content Review**: Centralized dashboard for all pending content
 
-### Backward Compatibility
-- JSON-style API (`load_forum()`, `load_uploaded_files()`)
-- Existing code continues to work without modification
+### User Management
+- **Create Accounts**: Register new students and admins
+- **View Users**: List all users with roles and profile info
+- **Delete Users**: Remove users with prominent red "DELETE USER" buttons
+- **Role Management**: Distinguish between admin and student accounts
 
-### Database Utilities
-Access database statistics:
-```python
-from database import db
-stats = db.get_db_stats()
-print(stats)  # {'users': 3, 'posts': 5, 'files': 12, 'db_size_kb': 256}
-```
+### Security
+- **Access Control**: Admin-only features with role verification
+- **Data Cleanup**: Safe deletion with foreign key handling
+- **Audit Trail**: Track who approved/rejected content
 
 ## Key Improvements Over JSON
 
@@ -138,6 +153,7 @@ For production use, implement password hashing (e.g., bcrypt, argon2).
 ## Future Enhancements
 
 - Add password reset functionality
-- Implement role-based access control (admin/student)
+- Implement advanced search and filtering
 - Add search indexing for better forum performance
 - Export data to CSV/PDF reports
+- Add user activity logging and analytics
